@@ -28,6 +28,9 @@ def create_user():
 def place_bet():
     user_id = request.json.get('user_id')
     amount = request.json.get('amount')
+    if amount <= 0:
+        return jsonify({"message": "Bet amount must be positive."}), 400
+
     multiplier = random.uniform(2.0, 10.0)  # Random multiplier for the example
     new_bet = Bet(user_id=user_id, amount=amount, multiplier=multiplier)
     db.session.add(new_bet)
