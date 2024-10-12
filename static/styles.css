@@ -1,1 +1,58 @@
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#game-area {
+    text-align: center;
+}
+
+#sidebar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#chat-room {
+    flex: 1;
+    margin-right: 20px;
+}
+
+#leaderboard {
+    flex: 1;
+}
+
+input[type="text"],
+input[type="number"] {
+    margin: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#top-players {
+    background-color: #333;
+    padding: 10px;
+}
 
