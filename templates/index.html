@@ -39,7 +39,6 @@
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/coinbase-commerce-node/dist/index.js"></script>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <script>
         const socket = io();
@@ -158,8 +157,22 @@
             }, 1000);
         }
 
+        function sendMessage(event) {
+            if (event.key === 'Enter') {
+                const input = document.getElementById('chat-input');
+                const message = input.value;
+                socket.emit('chat_message', { user: userAddress, message });
+                input.value = '';
+            }
+        }
+
+        socket.on('chat_message', (data) => {
+            const chatMessageElem = document.createElement('div');
+            chatMessageElem.innerText = `${data.user}: ${data.message}`;
+            document.getElementById('chat-messages').appendChild(chatMessageElem);
+        });
+
         startGame();
     </script>
 </body>
 </html>
-
